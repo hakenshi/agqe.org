@@ -23,6 +23,7 @@ export default function RootLayout({
       <meta name="description" content="Site da ONG A.G.Q.E (Agência e Grupo Quatro Estações)" />
       <meta name="keywords" content="apoio lgbt, lgbtqia+, ong, agqe, são joão da boa vista, direitos humanos, diversidade" />
       <meta name="author" content="Luis Felipe Colosimo & Henrique Bissoli Malaman Alonso" />
+      <meta name="author" content="aplicação em NextJS desenvolvida por Felipe Kafka Dias" />
       <body
         className={`${roboto.variable} antialiased bg-zinc-100 text-zinc-800`}
 
