@@ -1,3 +1,5 @@
+import EventCard from "@/components/cards/event-card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -5,8 +7,7 @@ export default function Home() {
   return (
     <>
       <section
-        id="home"
-        className="relative h-[70vh] lg:h-[85vh] bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 flex items-center justify-center text-white text-center px-4 overflow-hidden">
+        className="relative h-[70vh] lg:h-[85vh] bg-linear-90 from-purple-600 via-pink-500 to-red-500 flex items-center justify-center text-white text-center px-4 overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-40 z-0"></div>
         <div className="relative z-10 max-w-3xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight shadow-text">
@@ -33,7 +34,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-gray-100 to-transparent z-5"></div>
       </section>
 
-      <section id="quem_somos" className="py-16 lg:py-24 bg-white">
+      <section className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4 lg:px-6 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-800">Quem Somos Nós</h2>
           <p className="text-lg text-pink-600 mb-10">Uma identidade distinta...</p>
@@ -95,7 +96,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="fazemos" className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-16">
             <div className="w-1/3">
@@ -107,6 +108,7 @@ export default function Home() {
                 className="rounded-lg shadow-lg w-full"
               />
             </div>
+
             <div className="md:w-1/2 text-center md:text-left">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">O Que Fazemos</h2>
               <p className="text-gray-600 leading-relaxed">
@@ -120,6 +122,179 @@ export default function Home() {
               >
                 Ver Atividades
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="atividades" className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 md:px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-800">Nossas Atividades</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+              <CardHeader>
+                <Image
+                  src="/images/features/fc1-1.jpg"
+                  alt="Educação"
+                  width={600}
+                  height={192}
+                  className="w-full h-48 object-cover rounded"
+                />
+              </CardHeader>
+              <CardContent>
+                <div className="p-6">
+                  <h4 className="text-xl font-bold mb-2 text-pink-700">Educação</h4>
+                  <p className="text-gray-600 text-sm">Promovemos oportunidades através da educação, capacitando pessoas para que alcancem seu potencial e ganhem confiança.</p>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+              <CardHeader>
+                <Image
+                  src="/images/features/fc2-1.jpg"
+                  alt="Ações Filantrópicas"
+                  width={600}
+                  height={192}
+                  className="w-full h-48 object-cover rounded"
+                />
+              </CardHeader>
+              <CardContent>
+                <div className="p-6">
+                  <h4 className="text-xl font-bold mb-2 text-purple-700">Ações Filantrópicas</h4>
+                  <p className="text-gray-600 text-sm">
+                    Levamos a filantropia a sério, trabalhando incansavelmente para causar um impacto positivo e apoiar quem mais precisa na comunidade.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+              <CardHeader>
+                <Image
+                  src="/images/features/fc3-1.jpg"
+                  alt="Suporte e Apoio"
+                  width={600}
+                  height={192}
+                  className="w-full h-48 object-cover rounded"
+                />
+              </CardHeader>
+              <CardContent>
+                <div className="p-6">
+                  <h4 className="text-xl font-bold mb-2 text-blue-700">Suporte e Apoio</h4>
+                  <p className="text-gray-600 text-sm">Intensificamos esforços para oferecer suporte. Através da cooperação e capacitação comunitária, buscamos fazer a diferença.</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 laptop:py-24 bg-white">
+        <div className="container mx-auto px-4 laptop:px-6">
+          <div id="proximos" className="mb-16">
+            <h2 className="text-3xl laptop:text-4xl font-bold mb-12 text-center text-gray-800">Próximos Eventos</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <EventCard alt="Parada do Orgulho" src="/images/event/e1.jpg">
+                <h3 className="text-xl font-bold mb-2 text-pink-700">
+                  <Link href="parada13.html" target="_blank" className="hover:underline">13ª Parada do Orgulho LGBTQIAP+</Link>
+                </h3>
+                <p className="text-sm text-gray-600 mb-3">A maior manifestação pela diversidade de São João e região!</p>
+                <p className="text-sm font-semibold text-gray-700 mb-4">Data: <span className="font-normal">A definir</span></p>
+                <Link href="parada13.html" target="_blank" className="mt-4 inline-block bg-pink-600 text-white text-sm py-2 px-4 rounded hover:bg-pink-700 transition duration-300">
+                  Mais Detalhes
+                </Link>
+                </EventCard>
+                <EventCard alt="Roda de Conversa" src="/images/event/e3.jpg">
+                <h3 className="text-xl font-bold mb-2 text-purple-700">
+                  <Link href="evento_pp.html" target="_blank" className="hover:underline">PROIBIDO PROIBIR: Roda de Conversa sobre HIV + Festa</Link>
+                </h3>
+                <p className="text-sm text-gray-600 mb-3">Evento especial com bate-papo informativo sobre HIV com convidados, seguido por festa com DJs da cena paulistana.</p>
+                <p className="text-sm font-semibold text-gray-700 mb-4">Data: <span className="font-normal">Realizado em 21/03/2020</span></p>
+                <Link href="evento_pp.html" target="_blank" className="mt-4 inline-block bg-purple-600 text-white text-sm py-2 px-4 rounded hover:bg-purple-700 transition duration-300">
+                  Mais Detalhes
+                </Link>
+                </EventCard>
+
+              <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col tablet:flex-row items-center">
+                <Image
+                  src="/images/event/e1.jpg"
+                  alt="Parada do Orgulho"
+                  width={600}
+                  height={800}
+                  className="w-full tablet:w-1/3 h-48 tablet:h-full object-cover"
+                />
+                <div className="p-6 flex-1">
+                  <h3 className="text-xl font-bold mb-2 text-pink-700">
+                    <Link href="parada13.html" target="_blank" className="hover:underline">13ª Parada do Orgulho LGBTQIAP+</Link>
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-3">A maior manifestação pela diversidade de São João e região!</p>
+                  <p className="text-sm font-semibold text-gray-700 mb-4">Data: <span className="font-normal">A definir</span></p>
+                  <Link href="parada13.html" target="_blank" className="mt-4 inline-block bg-pink-600 text-white text-sm py-2 px-4 rounded hover:bg-pink-700 transition duration-300">
+                    Mais Detalhes
+                  </Link>
+                </div>
+              </div>
+              <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col tablet:flex-row items-center">
+                <Image
+                  src="/images/event/e3.jpg"
+                  alt="Roda de Conversa"
+                  width={400}
+                  height={300}
+                  className="w-full tablet:w-1/3 h-48 tablet:h-full object-cover"
+                />
+                <div className="p-6 flex-1">
+                  <h3 className="text-xl font-bold mb-2 text-purple-700">
+                    <Link href="evento_pp.html" target="_blank" className="hover:underline">PROIBIDO PROIBIR: Roda de Conversa sobre HIV + Festa</Link>
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-3">Evento especial com bate-papo informativo sobre HIV com convidados, seguido por festa com DJs da cena paulistana.</p>
+                  <p className="text-sm font-semibold text-gray-700 mb-4">Data: <span className="font-normal">Realizado em 21/03/2020</span></p>
+                  <Link href="evento_pp.html" target="_blank" className="mt-4 inline-block bg-purple-600 text-white text-sm py-2 px-4 rounded hover:bg-purple-700 transition duration-300">
+                    Mais Detalhes
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="anteriores">
+            <h2 className="text-3xl laptop:text-4xl font-bold mb-12 text-center text-gray-800">Eventos Anteriores</h2>
+            <div className="grid grid-cols-1 tablet:grid-cols-2 gap-8">
+              <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col tablet:flex-row items-center opacity-80 hover:opacity-100 transition-opacity duration-300">
+                <Image
+                  src="/images/event/e1.jpg"
+                  alt="Parada 12"
+                  width={400}
+                  height={300}
+                  className="w-full tablet:w-1/3 h-48 tablet:h-full object-cover"
+                />
+                <div className="p-6 flex-1">
+                  <h3 className="text-xl font-bold mb-2 text-gray-700">
+                    <Link href="parada12.html" target="_blank" className="hover:underline">12ª Parada do Orgulho (2020)</Link>
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-3">Edição marcante realizada em [formato, ex: formato virtual/presencial adaptado].</p>
+                  <p className="text-sm font-semibold text-gray-500 mb-4">Realizado em: 19/07/2020</p>
+                  <Link href="parada12.html" target="_blank" className="mt-4 inline-block bg-gray-500 text-white text-sm py-2 px-4 rounded hover:bg-gray-600 transition duration-300">
+                    Relembre
+                  </Link>
+                </div>
+              </div>
+              <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col tablet:flex-row items-center opacity-80 hover:opacity-100 transition-opacity duration-300">
+                <Image
+                  src="/images/event/e2.jpg"
+                  alt="Parada 11"
+                  width={400}
+                  height={300}
+                  className="w-full tablet:w-1/3 h-48 tablet:h-full object-cover"
+                />
+                <div className="p-6 flex-1">
+                  <h3 className="text-xl font-bold mb-2 text-gray-700">
+                    <Link href="parada11.html" target="_blank" className="hover:underline">11ª Parada: &quot;Todos Podem ser Frida&quot; (2019)</Link>
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-3">Celebrando a diversidade e a força inspirada em Frida Kahlo.</p>
+                  <p className="text-sm font-semibold text-gray-500 mb-4">Realizado em: 21/07/2019</p>
+                  <Link href="parada11.html" target="_blank" className="mt-4 inline-block bg-gray-500 text-white text-sm py-2 px-4 rounded hover:bg-gray-600 transition duration-300">
+                    Relembre
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
