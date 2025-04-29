@@ -10,6 +10,7 @@ export default function Home() {
   return (
     <>
       <section
+        id="hero"
         className="relative h-[70vh] md:h-screen bg-linear-90 from-purple-600 via-pink-500 to-red-500 flex items-center justify-center text-white text-center px-4 overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-40 z-0"></div>
         <div className="relative z-10 max-w-3xl">
@@ -37,7 +38,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-gray-100 to-transparent z-5"></div>
       </section>
 
-      <section className="py-16 lg:py-24 bg-white">
+      <section id="quem_somos" className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4 lg:px-6 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-800">Quem Somos Nós</h2>
           <p className="text-lg text-pink-600 mb-10">Uma identidade distinta...</p>
@@ -99,7 +100,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-white">
+      <section id="oque_fazemos" className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-16">
             <div className="w-1/3">
@@ -190,9 +191,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 lg:py-24 bg-white">
+      <section id="eventos" className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4 lg:px-6">
-          <div id="proximos" className="mb-16">
+          <div className="mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-gray-800">Próximos Eventos</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <EventCard alt="Parada do Orgulho" src={"/images/event/e1.jpg"}>
@@ -210,7 +211,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div id="anteriores">
+          <div>
             <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-gray-800">Eventos Anteriores</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <EventCard alt="Parada 12" src="/images/event/e1.jpg">
