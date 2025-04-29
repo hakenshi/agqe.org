@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "700"], // You can adjust weights as needed
 });
 
 export const metadata: Metadata = {
@@ -24,8 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta name="description" content="Site da ONG A.G.Q.E (Agência e Grupo Quatro Estações)" />
+      <meta name="keywords" content="apoio lgbt, lgbtqia+, ong, agqe, são joão da boa vista, direitos humanos, diversidade" />
+      <meta name="author" content="Luis Felipe Colosimo & Henrique Bissoli Malaman Alonso" />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${roboto.variable} antialiased bg-zinc-100 text-zinc-800`}
+
+        cz-shortcut-listen="true"
       >
         {children}
       </body>
