@@ -8,7 +8,7 @@ export default function Header() {
         <header className='bg-white shadow-md fixed top-0 left-0 w-full z-50'>
             <nav className='container mx-auto px-6 py-3 flex justify-between items-center'>
                 <Link href="/" className="flex items-center space-x-2">
-                    <Image width={75} height={75} src="/icons/icon-transparent.png" alt="Logo AGQE" /> <span className="font-bold text-xl hidden md:inline text-pink-600">A.G.Q.E</span>
+                    <Image width={75} height={75} src="/icons/icon-transparent.png" alt="Logo AGQE" /> <span className="h-auto font-bold text-xl hidden md:inline text-pink-600">A.G.Q.E</span>
                 </Link>
                 <ul className="flex space-x-6 items-center">
                     <li>
@@ -44,7 +44,7 @@ export default function Header() {
                     <li>
                         <Link
                             href="/"
-                            className={`${buttonVariants({variant: 'ghost'})} border border-red-500 text-red-600 hover:text-red-800 hover:bg-red-600/20`}
+                            className={`${buttonVariants({ variant: 'ghost' })} border border-red-500 text-red-600 hover:text-red-600 hover:bg-red-600/20`}
                         >
                             Denuncie!
                         </Link>

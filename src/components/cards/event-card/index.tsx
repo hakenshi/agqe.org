@@ -10,20 +10,18 @@ type EventCardProps = {
 export default function EventCard({ alt, src, children }: EventCardProps) {
 
     return (
-        <Card className="bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col tablet:flex-row items-center">
-            <CardHeader>
+        <Card className="bg-gray-50 rounded-lg shadow-md overflow-hidden grid md:grid-cols-[auto_auto] items-center">
+            <CardHeader className="w-full md:w-72 md:h-72">
                 <Image
                     src={src}
                     alt={alt}
                     width={600}
                     height={800}
-                    className="w-full tablet:w-1/3 h-48 tablet:h-full object-cover"
+                    className="rounded w-full h-full"
                 />
             </CardHeader>
             <CardContent>
-                <div className="p-6 flex-1">
-                    {children}
-                </div>
+                {children}
             </CardContent>
         </Card>
     )

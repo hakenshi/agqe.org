@@ -1,3 +1,4 @@
+import Footer from '@/components/footer'
 import Header from '@/components/header'
 import React, { PropsWithChildren } from 'react'
 
@@ -8,6 +9,7 @@ export default function layout({ children }: PropsWithChildren) {
             <main>
                 {children}
             </main>
+            <Footer />
         </>
     )
 }
