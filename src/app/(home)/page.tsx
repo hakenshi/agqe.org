@@ -252,7 +252,6 @@ export default function Home() {
             <StaffCard color="orange" staffMember={{ name: "Lou Bruscato", photo: "/images/volunteer/Luigi..jpg", position: "Coord. Jovens/Adolesc." }} />
             <StaffCard color="cyan" staffMember={{ name: "Luís Felipe Colósimo", photo: "/images/volunteer/luisFelipe.jpg", position: "Web Designer" }} />
             <StaffCard color="lime" staffMember={{ name: "Amanda Domingues", photo: "/images/volunteer/amanda.jpg", position: "Coord. Ações/Eventos" }} />
-
           </div>
         </div>
       </section>
