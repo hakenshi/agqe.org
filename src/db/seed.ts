@@ -1,5 +1,5 @@
 import { db } from "./db";
-import { users } from "./schema";
+import { usersSchema } from "./schema";
 
 async function seed() {
     console.log("seeding the database.")
@@ -20,10 +20,10 @@ async function seed() {
     ];
     try {
         console.log("Deleting existing users...")
-        await db.delete(users)
+        await db.delete(usersSchema)
 
         console.log("Inserting new users...")
-        await db.insert(users).values(usersToInsert)
+        await db.insert(usersSchema).values(usersToInsert)
 
         console.log('Database successfully seeded with staff data.')
 
