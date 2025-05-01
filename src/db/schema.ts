@@ -16,7 +16,7 @@ export const sponsorsSchema = pgTable('sponsors', {
     name: varchar('name', { length: 255 }).notNull(),
     logo: varchar('logo').notNull(),
     website: varchar('website', { length: 255 }).notNull(),
-    sponseringSince: timestamp('sponsoring_since').notNull(),
+    sponsoringSince: timestamp('sponsoring_since').notNull(),
     createAt: timestamp('created_at').defaultNow().notNull(),
     updatedAt: timestamp('updated_at').defaultNow().$onUpdate(() => new Date())
 })

@@ -6,7 +6,7 @@ export default function layout({ children }: PropsWithChildren) {
     return (
         <>
             <Header />
-            <main className='pt-20'>
+            <main className='pt-15 md:pt-20'>
                 {children}
             </main>
             <Footer />
