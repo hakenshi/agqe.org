@@ -1,3 +1,4 @@
+import ContactForm from "@/components/forms/contact-form"
 import { MailIcon, MapPin, PhoneIcon } from "lucide-react"
 
 export default function ContatoPage() {
@@ -15,7 +16,7 @@ export default function ContatoPage() {
                             <h2 className="text-2xl font-bold text-gray-800 mb-4">Informações de Contato</h2>
 
                             <div className="flex items-start space-x-4">
-                                <MapPin className="text-2xl text-pink-600 mt-1 w-6 text-center" />
+                                <MapPin className="text-2xl text-pink-600 mt-4 w-6 text-center" />
                                 <div>
                                     <h6 className="font-semibold text-gray-700">Endereço</h6>
                                     <p className="text-gray-600 text-sm">São João da Boa Vista, SP</p>
@@ -24,7 +25,7 @@ export default function ContatoPage() {
                             </div>
 
                             <div className="flex items-start space-x-4">
-                                <PhoneIcon className="text-2xl text-pink-600 mt-1 w-6 text-center" />
+                                <PhoneIcon className="text-2xl text-pink-600 mt-4 w-6 text-center" />
                                 <div>
                                     <h6 className="font-semibold text-gray-700">Telefone / WhatsApp</h6>
                                     <a href="tel:+5519981333743" className="text-blue-600 hover:underline hover:text-blue-800 text-sm">(19) 98133-3743</a>
@@ -33,7 +34,7 @@ export default function ContatoPage() {
                             </div>
 
                             <div className="flex items-start space-x-4">
-                                <MailIcon className="text-2xl text-pink-600 mt-1 w-6 text-center" />
+                                <MailIcon className="text-2xl text-pink-600 mt-4 w-6 text-c2enter" />
                                 <div>
                                     <h6 className="font-semibold text-gray-700">Email</h6>
                                     <a
@@ -71,68 +72,7 @@ export default function ContatoPage() {
                         </div>
 
                         <div className="lg:col-span-2 bg-gray-50 p-6 lg:p-8 rounded-lg shadow-lg">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-6">Envie sua Mensagem</h2>
-                            {/* <form className="space-y-5" id="contactForm">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                                    <div>
-                                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            id="name"
-                                            required
-                                            placeholder="Seu nome"
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-pink-500 focus:border-pink-500 transition duration-150 ease-in-out"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            id="email"
-                                            required
-                                            placeholder="seu@email.com"
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-pink-500 focus:border-pink-500 transition duration-150 ease-in-out"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Assunto</label>
-                                    <input
-                                        type="text"
-                                        name="subject"
-                                        id="subject"
-                                        required
-                                        placeholder="Sobre o que você quer falar?"
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-pink-500 focus:border-pink-500 transition duration-150 ease-in-out"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Mensagem</label>
-                                    <textarea
-                                        name="message"
-                                        id="message"
-                                        rows={5}
-                                        required
-                                        placeholder="Digite sua mensagem aqui..."
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-pink-500 focus:border-pink-500 transition duration-150 ease-in-out resize-none"
-                                    ></textarea>
-                                </div>
-
-                                <div className="text-right">
-                                    <button
-                                        type="submit"
-                                        className="inline-flex justify-center py-2 px-6 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 transition duration-300"
-                                    >
-                                        Enviar Mensagem
-                                    </button>
-                                </div>
-
-                                <div id="form-feedback" className="mt-4 text-sm"></div>
-                            </form> */}
+                            <ContactForm />
                         </div>
                     </div>
                 </div>
