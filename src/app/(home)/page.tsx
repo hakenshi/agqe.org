@@ -1,3 +1,4 @@
+import { getAllUsers } from "@/actions/users";
 import EventCard from "@/components/cards/event-card";
 import EventCardBody from "@/components/cards/event-card/event-card-body";
 import EventCardHeader from "@/components/cards/event-card/event-card-header";
@@ -8,12 +9,13 @@ import Link from "next/link";
 
 export default async function Home() {
 
+  const users = await getAllUsers()
 
   return (
     <>
       <section
         id="hero"
-        className="relative h-[70vh] md:h-screen bg-linear-90 from-purple-600 via-pink-500 to-red-500 flex items-center justify-center text-white text-center px-4 overflow-hidden">
+        className="relative h-[70vh] md:h-[85vh] bg-linear-90 from-purple-600 via-pink-500 to-red-500 flex items-center justify-center text-white text-center px-4 overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-40 z-0"></div>
         <div className="relative z-10 max-w-3xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight shadow-text">
@@ -242,18 +244,11 @@ export default async function Home() {
         <div className="container mx-auto px-4 lg:px-6 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-gray-800">Nossa Equipe</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-8">
-            <StaffCard color="pink" staffMember={{ name: "João Pedro G. B. de Oliveira", photo: "/images/volunteer/JoaoPedro.jpg", position: "Presidente" }} />
-            <StaffCard color="purple" staffMember={{ name: "Wellington Ambrozio Jacó", photo: "/images/volunteer/Wellington.jpg", position: "Vice-Presidente" }} />
-            <StaffCard color="blue" staffMember={{ name: "Chrysthopher Eluís Dekay", photo: "/images/volunteer/Chrysthopher.jpg", position: "Assessor de Políticas" }} />
-            <StaffCard color="teal" staffMember={{ name: "Patricia Maria M. T. Mollo", photo: "/images/volunteer/Patricia.jpg", position: "Advogada" }} />
-            <StaffCard color="red" staffMember={{ name: "Alessandra Windson Francis", photo: "/images/volunteer/Alessandra.jpg", position: "Coordenadora Trans" }} />
-            <StaffCard color="indigo" staffMember={{ name: "Ettore Yazbeck", photo: "/images/volunteer/Ettore.jpg", position: "Coordenador de Eventos" }} />
-            <StaffCard color="yellow" staffMember={{ name: "Pedro Alves", photo: "/images/volunteer/Pedro.jpg", position: "Coordenador de Eventos" }} />
-            <StaffCard color="green" staffMember={{ name: "Wellington Freitas", photo: "/images/volunteer/WellingtonF.JPG", position: "Coordenador de Eventos" }} />
-            <StaffCard color="gray" staffMember={{ name: "Mitchell Willyans R.", photo: "/images/volunteer/Mitchell.jpg", position: "Assessor de Eventos" }} />
-            <StaffCard color="orange" staffMember={{ name: "Lou Bruscato", photo: "/images/volunteer/Luigi..jpg", position: "Coord. Jovens/Adolesc." }} />
-            <StaffCard color="cyan" staffMember={{ name: "Luís Felipe Colósimo", photo: "/images/volunteer/luisFelipe.jpg", position: "Web Designer" }} />
-            <StaffCard color="lime" staffMember={{ name: "Amanda Domingues", photo: "/images/volunteer/amanda.jpg", position: "Coord. Ações/Eventos" }} />
+
+            {users.map(user => (
+              <StaffCard color={"pink"} staffMember={user} key={user.id} />
+            ))}
+
           </div>
         </div>
       </section>

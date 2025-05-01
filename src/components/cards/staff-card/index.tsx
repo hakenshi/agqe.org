@@ -1,13 +1,10 @@
+import { usersSchema } from '@/db/schema'
 import Image from 'next/image'
 import React from 'react'
 
 interface StaffCardProps {
     color: 'red' | 'orange' | 'amber' | 'yellow' | 'lime' | 'green' | 'emerald' | 'teal' | 'cyan' | 'sky' | 'blue' | 'indigo' | 'violet' | 'purple' | 'fuchsia' | 'pink' | 'rose' | 'neutral' | 'stone' | 'gray' | 'slate'
-    staffMember: {
-        name: string
-        position: string
-        photo: string
-    }
+    staffMember: typeof usersSchema.$inferSelect
 }
 
 export default function StaffCard({ color, staffMember }: StaffCardProps) {
@@ -40,13 +37,13 @@ export default function StaffCard({ color, staffMember }: StaffCardProps) {
         <div className="bg-white p-5 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
             <Image
                 className={`w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 ${colors[color].border}`}
-                src={staffMember.photo}
-                alt={staffMember.name}
+                src={staffMember.photo ?? "/default-profile.png"}
+                alt={`${staffMember.firstName} ${staffMember.secondName}`}
                 width={300}
                 height={300}
             />
-            <h4 className="text-lg font-semibold text-gray-800">{staffMember.name}</h4>
-            <p className={`text-sm ${colors[color].text} font-medium`}>{staffMember.position}</p>
+            <h4 className="text-lg font-semibold text-gray-800">{`${staffMember.firstName} ${staffMember.secondName}`}</h4>
+            <p className={`text-sm ${colors[color].text} font-medium`}>{staffMember.occupation}</p>
         </div>
     )
 }
