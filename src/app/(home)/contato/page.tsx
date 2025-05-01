@@ -1,4 +1,4 @@
-import { MailIcon, MapIcon, MapPin, PhoneIcon } from "lucide-react"
+import { MailIcon, MapPin, PhoneIcon } from "lucide-react"
 
 export default function ContatoPage() {
     return (
