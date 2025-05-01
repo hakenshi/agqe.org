@@ -6,7 +6,7 @@ import { Info, Calendar, Mail, Handshake, AlertTriangle, HomeIcon } from 'lucide
 
 export default function Header() {
     return (
-        <header className='bg-white shadow-md fixed md:top-0 md:left-0 w-full z-50'>
+        <header className='bg-white shadow-md fixed md:top-0 md:left-0 w-full z-10'>
             <nav className='container mx-auto px-6 py-3 flex justify-between items-center'>
                 <Link href="/" className="hidden md:flex items-center space-x-2">
                     <Image width={75} height={75} src="/icons/icon-transparent.png" alt="Logo AGQE" className='hidden md:inline' />
@@ -19,7 +19,7 @@ export default function Header() {
                         </Link>
                     </li>
                     <li>
-                        <Link href="#quem_somos" className="text-gray-600 hover:text-pink-600 transition duration-300 flex items-center">
+                        <Link href="/#quem_somos" className="text-gray-600 hover:text-pink-600 transition duration-300 flex items-center">
                             <span className="hidden md:inline">Sobre</span>
                             <span className="md:hidden text-lg">
                                 <Info className="w-5 h-5" />
@@ -27,7 +27,7 @@ export default function Header() {
                         </Link>
                     </li>
                     <li>
-                        <Link href="#eventos" className="text-gray-600 hover:text-pink-600 transition duration-300 flex items-center">
+                        <Link href="/#eventos" className="text-gray-600 hover:text-pink-600 transition duration-300 flex items-center">
                             <span className="hidden md:inline">Eventos</span>
                             <span className="md:hidden text-lg">
                                 <Calendar className="w-5 h-5" />
