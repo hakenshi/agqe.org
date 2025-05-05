@@ -1,3 +1,4 @@
+import { getAllEvents } from "@/actions/events";
 import { getAllUsers } from "@/actions/users";
 import EventCard from "@/components/cards/event-card";
 import EventCardBody from "@/components/cards/event-card/event-card-body";
@@ -10,6 +11,8 @@ import Link from "next/link";
 export default async function Home() {
 
   const users = await getAllUsers()
+
+  const events = await getAllEvents()
 
   return (
     <>
@@ -200,18 +203,14 @@ export default async function Home() {
           <div className="mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-gray-800">Próximos Eventos</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
               <EventCard alt="Parada do Orgulho" src={"/images/event/e1.jpg"}>
                 <EventCardHeader href="#">
                   13ª Parada do Orgulho LGBT+
                 </EventCardHeader>
                 <EventCardBody href="#" title="A maior manifestação pela diversidade de São João e região!" />
               </EventCard>
-              <EventCard alt="Roda de Conversa" src={"/images/event/e3.jpg"}>
-                <EventCardHeader href="#">
-                  PROIBIDO PROIBIR: Roda de Conversa sobre HIV + Festa
-                </EventCardHeader>
-                <EventCardBody href="#" title="Evento especial com bate-papo informativo sobre HIV com convidados, seguido por festa com DJs da cena paulistana." />
-              </EventCard>
+
             </div>
           </div>
 

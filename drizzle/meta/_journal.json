@@ -22,6 +22,13 @@
       "when": 1746459251021,
       "tag": "0002_magical_rumiko_fujikawa",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1746459878087,
+      "tag": "0003_medical_mercury",
+      "breakpoints": true
     }
   ]
 }

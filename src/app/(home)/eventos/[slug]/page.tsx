@@ -1,7 +1,8 @@
 import React from 'react'
 
-export default function EventosPage() {
-  return (
-    <div>page</div>
-  )
+export default async function EventosPage() {
+
+    return (
+        <div>page</div>
+    )
 }

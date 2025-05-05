@@ -1,5 +1,5 @@
 import { db } from "./db";
-import { usersSchema, sponsorsSchema } from "./schema";
+import { usersSchema, sponsorsSchema, eventImagesSchema, eventsSchema, eventTypeEnum } from "./schema";
 
 async function seed() {
     console.log("seeding the database.")
@@ -57,6 +57,43 @@ async function seed() {
         { name: "Armazém Asgard", logo: "/images/apoio/38.png", website: "", sponsoringSince: new Date() }
     ];
 
+    const eventsToInsert = [
+        {
+            name: "PROIBIDO PROIBIR: Roda de Conversa sobre HIV + Festa",
+            eventType: "event" as typeof eventTypeEnum.enumValues['1'],
+            slug: "proibido-proibir-roda-de-conversa-sobre-hiv-festa",
+            description: `A Casa Pagú, no dia 21 de Março de 2020, iniciou um novo ciclo de eventos. A novidade é que, a partir desta data, nossas festas vieram acompanhadas de nossos ideais, mostrando o mundo que acreditamos ser possível, livre de preconceitos e rigidez.
+O primeiro evento desta nova fase foi o PROIBIDO PROIBIR, uma roda de conversa sobre HIV com convidados mais que especiais: Jenniffer Besse (Podcast 1Ligação) recebeu David Oliveira para compartilhar sua experiência em um bate-papo lindo, com muita realidade sobre o HIV no Brasil.
+Recebemos também Chrysthopher Dekay (Assessor de Políticas para a Diversidade), representando a Associação Grupo Quatro Estações, nossa apoiadora, com informações sobre a nossa região, prevenção, distribuição de material preventivo e muito mais!
+A Festa: Dessa vez, a festa foi regada pelo melhor da discotecagem paulistana do pessoal da casa feminista Presidenta Bar, na Augusta.
+- DJ residente do Presidenta Bar, Camila Possolo, trazendo o melhor do punk feminista e música indie.
+- DJ Renato Mutt agitando com muito garage, post-punk revival e new punk.
+- DJ Jennifer Besse representando a cena das Brasilidades.
+A ideia foi que as pessoas se sentissem à vontade para participar e tirar suas dúvidas, num ambiente descontraído e acolhedor, porque cremos que todos temos espaço de fala e pertencimento.
+Participação e Ingressos: Para este dia, abrimos as portas às 16 horas. A entrada na festa foi gratuita apenas para quem participou do bate-papo (mediante envio prévio de nome para Maria Paula Magalhães).
+Ingressos apenas para a festa foram vendidos antecipadamente por R$ 10,00 ou na portaria por R$ 15,00. Os ingressos eram limitados.
+Regras: Proibida a entrada com bebidas alcoólicas e para menores de 18 anos.`,
+            date: new Date("2020-03-21T16:00:00"),
+            location: "Casa Pagú, São João da Boa Vista"
+        },
+        {
+            name: "12ª Parada do Orgulho da Diversidade de São João da Boa Vista",
+            eventType: "event" as typeof eventTypeEnum.enumValues['1'],
+            slug: "12-parada-orgulho-diversidade-sao-joao-da-boa-vista",
+            description: `A 12ª edição da Parada do Orgulho da Diversidade chegou mais colorida, empoderada, renovada e com muitas novidades! Devido ao contexto da época (Pandemia COVID-19), o formato e atrações foram adaptados. Apresentação: Judy Rainbow e Convidada Especial. DJs: [Informações não disponíveis]. Shows: [Informações não disponíveis]. Apoio: Prefeitura Municipal de São João da Boa Vista, Departamento Municipal de Cultura, Departamento Municipal de Saúde.`,
+            date: new Date("2020-07-19T13:00:00"),
+            location: "Largo da Estação Ferroviária, São João da Boa Vista"
+        },
+        {
+            name: "11ª Parada do Orgulho da Diversidade",
+            eventType: "gallery" as typeof eventTypeEnum.enumValues['0'],
+            slug: "11-parada-orgulho-diversidade",
+            description: `11ª Parada do Orgulho da Diversidade. Tema: "Todos Podem ser Frida."`,
+            date: new Date("2019-07-21T13:00:00"),
+            location: "São João da Boa Vista"
+        }
+    ];
+
     try {
         console.log("Deleting existing users...")
         await db.delete(usersSchema)
@@ -68,6 +105,35 @@ async function seed() {
         await db.delete(sponsorsSchema)
         console.log("Inserting new sponsors...")
         await db.insert(sponsorsSchema).values(sponsorsToInsert)
+
+        console.log("Deleting existing event images...")
+
+        await db.delete(eventImagesSchema)
+
+        console.log("Deleting existing events...")
+
+        await db.delete(eventImagesSchema)
+
+        console.log("Inserting new events...")
+        const insertedEvents = await db.insert(eventsSchema).values(eventsToInsert).returning({ id: eventsSchema.id, slug: eventsSchema.slug })
+        const eventMap = Object.fromEntries(insertedEvents.map(e => [e.slug, e.id]));
+
+
+        const eventImagesToInsert = [
+            // PROIBIDO PROIBIR
+            { eventId: eventMap["proibido-proibir-roda-de-conversa-sobre-hiv-festa"], imageUrl: "images/event/pp_baner.jpeg" },
+            // 12ª Parada
+            { eventId: eventMap["12-parada-orgulho-diversidade-sao-joao-da-boa-vista"], imageUrl: "images/event/e1.jpg" },
+            // 11ª Parada (galeria)
+            ...Array.from({ length: 20 }, (_, i) => ({
+                eventId: eventMap["11-parada-orgulho-diversidade"],
+                imageUrl: `images/parada11/${i + 1}.jpg`
+            }))
+        ];
+
+        console.log("Inserting event images...")
+
+        await db.insert(eventImagesSchema).values(eventImagesToInsert)
 
         console.log('Database successfully seeded with staff data.')
 
