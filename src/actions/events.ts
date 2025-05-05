@@ -1,3 +1,5 @@
+'use server'
+
 import { db } from "@/db/db";
 import { eventsSchema } from "@/db/schema";
 import { sql } from "drizzle-orm";
