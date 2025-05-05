@@ -1,4 +1,4 @@
-import { pgTable, serial, timestamp, varchar } from "drizzle-orm/pg-core";
+import { pgTable, serial, timestamp, varchar, integer, pgEnum } from "drizzle-orm/pg-core";
 
 export const usersSchema = pgTable('users', {
     id: serial('id').primaryKey().notNull(),
@@ -17,6 +17,28 @@ export const sponsorsSchema = pgTable('sponsors', {
     logo: varchar('logo').notNull(),
     website: varchar('website', { length: 255 }).notNull(),
     sponsoringSince: timestamp('sponsoring_since').notNull(),
+    createAt: timestamp('created_at').defaultNow().notNull(),
+    updatedAt: timestamp('updated_at').defaultNow().$onUpdate(() => new Date())
+})
+
+export const eventTypeEnum = pgEnum('event_type', ['gallery', 'event', 'event_gallery']);
+
+export const eventsSchema = pgTable('events', {
+    id: serial('id').primaryKey().notNull(),
+    name: varchar('name', { length: 255 }).notNull(),
+    eventType: eventTypeEnum('event_type').notNull(),
+    slug: varchar('slug', { length: 255 }).notNull(),
+    description: varchar('description').notNull(),
+    date: timestamp('date').notNull(),
+    location: varchar('location', { length: 255 }).notNull(),
+    createAt: timestamp('created_at').defaultNow().notNull(),
+    updatedAt: timestamp('updated_at').defaultNow().$onUpdate(() => new Date())
+})
+
+export const eventImagesSchema = pgTable('event_images', {
+    id: serial('id').primaryKey().notNull(),
+    eventId: integer('event_id').references(() => eventsSchema.id).notNull(),
+    imageUrl: varchar('image_url').notNull(),
     createAt: timestamp('created_at').defaultNow().notNull(),
     updatedAt: timestamp('updated_at').defaultNow().$onUpdate(() => new Date())
 })

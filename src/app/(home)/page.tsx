@@ -32,7 +32,7 @@ export default async function Home() {
               Saiba Mais
             </Link>
             <Link
-              href="apoio.html"
+              href="/apoiadores"
               className="bg-transparent border-2 border-white hover:bg-white hover:text-pink-600 font-semibold py-3 px-8 rounded-full transition duration-300 shadow-lg"
             >
               Apoie a Causa

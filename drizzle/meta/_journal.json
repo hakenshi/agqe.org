@@ -15,6 +15,13 @@
       "when": 1746104355297,
       "tag": "0001_opposite_caretaker",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1746459251021,
+      "tag": "0002_magical_rumiko_fujikawa",
+      "breakpoints": true
     }
   ]
 }
