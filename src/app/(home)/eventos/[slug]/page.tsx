@@ -11,9 +11,9 @@ export default async function EventosPage({ params }: { params: { slug: string }
     return (
         <section className="py-10 bg-white">
             <div className="container mx-auto px-4 lg:px-6">
-                {event ? (<div className="flex flex-col lg:flex-row items-start">
+                {event ? (<div className="flex flex-col lg:flex-row justify-center gap-10 items-start">
                     {/* Banner e detalhes */}
-                    <div className="lg:w-1/2 flex items-center flex-col justify-center">
+                    <div className="lg:w-1/3 flex items-center flex-col justify-center">
                         <Image
                             src={`/${event?.images[0].imageUrl}`}
                             alt={event?.name}
