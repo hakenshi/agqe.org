@@ -1,3 +1,6 @@
+'server-only'
+
+import { relations } from "drizzle-orm";
 import { pgTable, serial, timestamp, varchar, integer, pgEnum } from "drizzle-orm/pg-core";
 
 export const usersSchema = pgTable('users', {
@@ -43,3 +46,14 @@ export const eventImagesSchema = pgTable('event_images', {
     createAt: timestamp('created_at').defaultNow().notNull(),
     updatedAt: timestamp('updated_at').defaultNow().$onUpdate(() => new Date())
 })
+
+export const eventImagesRelation = relations(eventsSchema, ({ many }) => ({
+    images: many(eventImagesSchema)
+}))
+
+export const imageEventsRelation = relations(eventImagesSchema, ({ one }) => ({
+    event: one(eventsSchema, {
+        fields: [eventImagesSchema.eventId],
+        references: [eventsSchema.id]
+    })
+}))

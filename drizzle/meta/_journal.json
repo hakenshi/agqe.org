@@ -43,6 +43,13 @@
       "when": 1746463974046,
       "tag": "0005_jittery_luminals",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1746559179006,
+      "tag": "0006_mute_zeigeist",
+      "breakpoints": true
     }
   ]
 }

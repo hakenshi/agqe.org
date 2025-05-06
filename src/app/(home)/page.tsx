@@ -200,43 +200,32 @@ export default async function Home() {
 
       <section id="eventos" className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4 lg:px-6">
-            <div className="mb-16">
+          {events?.futureEvents && events?.futureEvents.length > 0 && <div className="mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-gray-800">Próximos Eventos</h2>
+            <div className={`grid grid-cols-1 ${events?.futureEvents && events?.futureEvents.length > 0 ? "md:grid-cols-2" : "md:grid-cols-1"} gap-8`}>
+              {events?.futureEvents && events?.futureEvents.length > 0 && events?.futureEvents.map(event => (
+                <EventCard key={event.id} alt={event.name} src={"/images/event/e1.jpg"}>
+                  <EventCardHeader href="#">
+                    {event.name}
+                  </EventCardHeader>
+                  <EventCardBody href={`/eventos/${event.slug}`} title={event.description} />
+                </EventCard>
+              ))}
+            </div>
+          </div>}
+          <div className="mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-gray-800">Eventos Anteriores</h2>
             <div className={`grid grid-cols-1 ${events?.pastEvents && events?.pastEvents.length > 0 ? "md:grid-cols-2" : "md:grid-cols-1"} gap-8`}>
               {events?.pastEvents && events?.pastEvents.length > 0 ? events?.pastEvents.map(event => (
-              <EventCard key={event.id} alt={event.name} src={"/images/event/e1.jpg"}>
-                <EventCardHeader href="#">
-                {event.name}
-                </EventCardHeader>
-                <EventCardBody href={`/eventos/${event.slug}`} title={event.description} />
-              </EventCard>
+                <EventCard key={event.id} alt={event.name} src={`/${event.images[0].imageUrl}`}>
+                  <EventCardHeader href="#">
+                    {event.name}
+                  </EventCardHeader>
+                  <EventCardBody href={`/eventos/${event.slug}`} title={event.description} />
+                </EventCard>
               )) : (
-              <p className="text-center">Ainda não há eventos anteriores.</p>
+                <p className="text-center">Ainda não há eventos anteriores.</p>
               )}
-            </div>
-            </div>
-
-          <div>
-            <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-gray-800">Eventos Anteriores</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <EventCard alt="Parada 12" src="/images/event/e1.jpg">
-                <EventCardHeader href="parada12.html">
-                  12ª Parada do Orgulho (2020)
-                </EventCardHeader>
-                <EventCardBody
-                  href="parada12.html"
-                  title="Edição marcante realizada em formato virtual/presencial adaptado."
-                />
-              </EventCard>
-              <EventCard alt="Parada 11" src="/images/event/e2.jpg">
-                <EventCardHeader href="parada11.html">
-                  11ª Parada: &quot;Todos Podem ser Frida&quot; (2019)
-                </EventCardHeader>
-                <EventCardBody
-                  href="parada11.html"
-                  title="Celebrando a diversidade e a força inspirada em Frida Kahlo."
-                />
-              </EventCard>
             </div>
           </div>
         </div>
