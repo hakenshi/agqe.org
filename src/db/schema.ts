@@ -29,6 +29,7 @@ export const eventsSchema = pgTable('events', {
     eventType: eventTypeEnum('event_type').notNull(),
     slug: varchar('slug', { length: 255 }).notNull(),
     description: varchar('description').notNull(),
+    content: varchar('content'),
     date: timestamp('date').notNull(),
     location: varchar('location', { length: 255 }).notNull(),
     createAt: timestamp('created_at').defaultNow().notNull(),

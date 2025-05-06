@@ -200,19 +200,21 @@ export default async function Home() {
 
       <section id="eventos" className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4 lg:px-6">
-          <div className="mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-gray-800">Próximos Eventos</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-              <EventCard alt="Parada do Orgulho" src={"/images/event/e1.jpg"}>
+            <div className="mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-gray-800">Eventos Anteriores</h2>
+            <div className={`grid grid-cols-1 ${events?.pastEvents && events?.pastEvents.length > 0 ? "md:grid-cols-2" : "md:grid-cols-1"} gap-8`}>
+              {events?.pastEvents && events?.pastEvents.length > 0 ? events?.pastEvents.map(event => (
+              <EventCard key={event.id} alt={event.name} src={"/images/event/e1.jpg"}>
                 <EventCardHeader href="#">
-                  13ª Parada do Orgulho LGBT+
+                {event.name}
                 </EventCardHeader>
-                <EventCardBody href="#" title="A maior manifestação pela diversidade de São João e região!" />
+                <EventCardBody href={`/eventos/${event.slug}`} title={event.description} />
               </EventCard>
-
+              )) : (
+              <p className="text-center">Ainda não há eventos anteriores.</p>
+              )}
             </div>
-          </div>
+            </div>
 
           <div>
             <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-gray-800">Eventos Anteriores</h2>

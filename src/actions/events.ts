@@ -31,8 +31,8 @@ type GetAllEventsReturnType = Promise<{
 
 export async function getAllEvents(): GetAllEventsReturnType {
     try {
-        const pastEvents = await db.select().from(eventsSchema).where(sql`${eventsSchema.date} <= ${new Date()}`).orderBy(sql`desc`)
-        const futureEvents = await db.select().from(eventsSchema).where(sql`${eventsSchema.date} >= ${new Date()}`).orderBy(sql`desc`)
+        const pastEvents = await db.select().from(eventsSchema).where(sql`${eventsSchema.date} <= ${new Date()}`)
+        const futureEvents = await db.select().from(eventsSchema).where(sql`${eventsSchema.date} >= ${new Date()}`)
         return { pastEvents, futureEvents }
     } catch (error) {
         console.error("Error fetching events:", error);
