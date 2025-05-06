@@ -205,7 +205,7 @@ export default async function Home() {
             <div className={`grid grid-cols-1 ${events?.futureEvents && events?.futureEvents.length > 0 ? "md:grid-cols-2" : "md:grid-cols-1"} gap-8`}>
               {events?.futureEvents && events?.futureEvents.length > 0 && events?.futureEvents.map(event => (
                 <EventCard key={event.id} alt={event.name} src={"/images/event/e1.jpg"}>
-                  <EventCardHeader href="#">
+                  <EventCardHeader href={`/eventos/${event.slug}`}>
                     {event.name}
                   </EventCardHeader>
                   <EventCardBody href={`/eventos/${event.slug}`} title={event.description} />
@@ -218,7 +218,7 @@ export default async function Home() {
             <div className={`grid grid-cols-1 ${events?.pastEvents && events?.pastEvents.length > 0 ? "md:grid-cols-2" : "md:grid-cols-1"} gap-8`}>
               {events?.pastEvents && events?.pastEvents.length > 0 ? events?.pastEvents.map(event => (
                 <EventCard key={event.id} alt={event.name} src={`/${event.images[0].imageUrl}`}>
-                  <EventCardHeader href="#">
+                  <EventCardHeader href={`/eventos/${event.slug}`}>
                     {event.name}
                   </EventCardHeader>
                   <EventCardBody href={`/eventos/${event.slug}`} title={event.description} />
