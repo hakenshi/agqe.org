@@ -1,7 +1,6 @@
 import { getEventBySlug } from '@/actions/events'
 import { ClockIcon, MapIcon, MapPinIcon } from 'lucide-react'
 import Image from 'next/image'
-import React from 'react'
 
 export default async function EventosPage({ params }: { params: { slug: string } }) {
     const { slug } = await params
@@ -36,7 +35,7 @@ export default async function EventosPage({ params }: { params: { slug: string }
                             </div>
                             <div className="flex items-center text-gray-600">
                                 <ClockIcon className="w-5 mr-2 text-purple-600" />
-                                {event.date.toLocaleTimeString()}
+                                {new Date(event.date).toLocaleTimeString()}
                             </div>
                             <div className="flex items-center text-gray-600">
                                 <MapPinIcon className="w-5 mr-2 text-purple-600" />
@@ -64,11 +63,6 @@ export default async function EventosPage({ params }: { params: { slug: string }
                         </h1>
 
                         <article className="prose prose-sm sm:prose-base max-w-none prose-p:text-gray-700 prose-p:leading-relaxed prose-strong:text-gray-800">
-                            <div
-                                dangerouslySetInnerHTML={{
-                                    __html: event.content ?? '',
-                                }}
-                            />
                         </article>
                     </div>
                 </div>) : (

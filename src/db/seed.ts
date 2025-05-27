@@ -124,19 +124,19 @@ async function seed() {
     ];
 
     try {
-        async function deleteData() {
-            console.log("Deleting existing users...")
-            await db.delete(usersSchema)
+        // async function deleteData() {
+        //     console.log("Deleting existing users...")
+        //     await db.delete(usersSchema)
 
-            console.log("Deleting existing sponsors...")
-            await db.delete(sponsorsSchema)
+        //     console.log("Deleting existing sponsors...")
+        //     await db.delete(sponsorsSchema)
 
-            console.log("Deleting existing event images...")
-            await db.delete(eventImagesSchema)
+        //     console.log("Deleting existing event images...")
+        //     await db.delete(eventImagesSchema)
 
-            console.log("Deleting existing events...")
-            await db.delete(eventsSchema) // Corrected from eventImagesSchema
-        }
+        //     console.log("Deleting existing events...")
+        //     await db.delete(eventsSchema) 
+        // }
 
         async function insertData() {
             console.log("Inserting new users...")
