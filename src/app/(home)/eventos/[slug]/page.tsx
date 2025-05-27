@@ -2,7 +2,11 @@ import { getEventBySlug } from '@/actions/events'
 import { ClockIcon, MapIcon, MapPinIcon } from 'lucide-react'
 import Image from 'next/image'
 
-export default async function EventosPage({ params }: { params: { slug: string } }) {
+interface PageProps {
+    params: Promise<{ slug: string }>
+}
+
+export default async function EventosPage({ params }: PageProps) {
     const { slug } = await params
 
     const event = await getEventBySlug(slug)
