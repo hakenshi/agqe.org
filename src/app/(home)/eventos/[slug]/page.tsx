@@ -80,6 +80,5 @@ export default async function EventosPage({ params }: { params: { slug: string }
                 )}
             </div>
         </section>
-
     )
 }

@@ -50,6 +50,13 @@
       "when": 1746559179006,
       "tag": "0006_mute_zeigeist",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1748366652448,
+      "tag": "0007_crazy_lockjaw",
+      "breakpoints": true
     }
   ]
 }
