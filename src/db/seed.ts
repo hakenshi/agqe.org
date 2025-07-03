@@ -9,8 +9,6 @@ function getFileURL(key: string) {
     return `${process.env.NEXT_PUBLIC_CLOUDFLARE_R2_ENDPOINT}/${key.replace(/^\//, "")}`;
 }
 
-
-
 async function seed() {
     console.log("seeding the database.")
 
@@ -124,19 +122,19 @@ async function seed() {
     ];
 
     try {
-        // async function deleteData() {
-        //     console.log("Deleting existing users...")
-        //     await db.delete(usersSchema)
+        async function deleteData() {
+            console.log("Deleting existing users...")
+            await db.delete(usersSchema)
 
-        //     console.log("Deleting existing sponsors...")
-        //     await db.delete(sponsorsSchema)
+            console.log("Deleting existing sponsors...")
+            await db.delete(sponsorsSchema)
 
-        //     console.log("Deleting existing event images...")
-        //     await db.delete(eventImagesSchema)
+            console.log("Deleting existing event images...")
+            await db.delete(eventImagesSchema)
 
-        //     console.log("Deleting existing events...")
-        //     await db.delete(eventsSchema) 
-        // }
+            console.log("Deleting existing events...")
+            await db.delete(eventsSchema) 
+        }
 
         async function insertData() {
             console.log("Inserting new users...")
@@ -165,7 +163,7 @@ async function seed() {
             await db.insert(eventImagesSchema).values(eventImagesToInsert)
         }
 
-        // await deleteData();
+        await deleteData();
         await insertData();
 
         console.log('Database successfully seeded with staff data.')
