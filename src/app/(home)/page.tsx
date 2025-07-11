@@ -204,11 +204,11 @@ export default async function Home() {
             <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-gray-800">Próximos Eventos</h2>
             <div className={`grid grid-cols-1 ${events?.futureEvents && events?.futureEvents.length > 0 ? "md:grid-cols-2" : "md:grid-cols-1"} gap-8`}>
               {events?.futureEvents && events?.futureEvents.length > 0 && events?.futureEvents.map(event => (
-                <EventCard key={event.id} alt={event.name} src={"/images/event/e1.jpg"}>
+                <EventCard key={event.id} alt={event.name} src={event.coverImage}>
                   <EventCardHeader href={`/eventos/${event.slug}`}>
                     {event.name}
                   </EventCardHeader>
-                  <EventCardBody href={`/eventos/${event.slug}`} title={event.description} />
+                  <EventCardBody href={`/eventos/${event.slug}`} title={event.name} />
                 </EventCard>
               ))}
             </div>
@@ -217,11 +217,11 @@ export default async function Home() {
             <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-gray-800">Eventos Anteriores</h2>
             <div className={`grid grid-cols-1 ${events?.pastEvents && events?.pastEvents.length > 0 ? "md:grid-cols-2" : "md:grid-cols-1"} gap-8`}>
               {events?.pastEvents && events?.pastEvents.length > 0 ? events?.pastEvents.map(event => (
-                <EventCard key={event.id} alt={event.name} src={`/${event.images[0].imageUrl}`}>
+                <EventCard key={event.id} alt={event.name} src={`${event.coverImage}`}>
                   <EventCardHeader href={`/eventos/${event.slug}`}>
                     {event.name}
                   </EventCardHeader>
-                  <EventCardBody href={`/eventos/${event.slug}`} title={event.description} />
+                  <EventCardBody href={`/eventos/${event.slug}`} title={event.name} />
                 </EventCard>
               )) : (
                 <p className="text-center">Ainda não há eventos anteriores.</p>

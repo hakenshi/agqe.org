@@ -3,14 +3,14 @@
 import "dotenv/config";
 import { relations } from "drizzle-orm";
 import {
-    date,
-    integer,
-    pgEnum,
-    pgTable,
-    serial,
-    time,
-    timestamp,
-    varchar,
+  date,
+  integer,
+  pgEnum,
+  pgTable,
+  serial,
+  time,
+  timestamp,
+  varchar,
 } from "drizzle-orm/pg-core";
 
 export const colorsEnum = pgEnum("colors", [
@@ -69,9 +69,9 @@ export const eventTypeEnum = pgEnum("event_type", [
 export const eventsSchema = pgTable("events", {
   id: serial("id").primaryKey().notNull(),
   name: varchar("name", { length: 255 }).notNull(),
+  coverImage: varchar("cover_image").notNull(),
   eventType: eventTypeEnum("event_type").notNull(),
-  slug: varchar("slug", { length: 255 }).notNull(),
-  description: varchar("description").notNull(),
+  slug: varchar("slug").notNull(),
   markdown: varchar("markdown"),
   date: date("date").notNull(),
   startingTime: time("starting_time").notNull(),
