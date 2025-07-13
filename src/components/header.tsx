@@ -10,7 +10,7 @@ export default function Header() {
             <nav className='container mx-auto px-6 py-3 flex justify-between items-center'>
                 <Link href="/" className="hidden md:flex items-center space-x-2">
                     <Image width={75} height={75} src="/icons/icon-transparent.png" alt="Logo AGQE" className='hidden md:inline' />
-                    <span className="font-bold text-xlo hidden md:inline text-pink-600">A.G.Q.E</span>
+                    <span className="font-bold text-xl hidden md:inline text-pink-600">A.G.Q.E</span>
                 </Link>
                 <ul className="flex space-x-6 items-center">
                     <li className='md:hidden'>
