@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "@/components
 import { DialogTitle } from "@radix-ui/react-dialog"
 import Image from "next/image"
 
-export default async function GaleriaPage({ params }: { params: { slug: string } }) {
+export default async function GaleriaPage({ params }: { params: Promise<{ slug: string }> }) {
 
   const { slug } = await params
 
