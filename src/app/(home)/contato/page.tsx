@@ -1,5 +1,5 @@
 import ContactForm from "@/components/forms/contact-form"
-import { MailIcon, MapPin, PhoneIcon } from "lucide-react"
+import { FacebookIcon, InstagramIcon, MailIcon, MapPin, PhoneIcon } from "lucide-react"
 
 export default function ContatoPage() {
     return (
@@ -56,7 +56,7 @@ export default function ContatoPage() {
                                         aria-label="Facebook da AGQE"
                                         className="text-gray-500 hover:text-blue-700 transition duration-300"
                                     >
-                                        <i className="fab fa-facebook-f text-2xl"></i>
+                                        <FacebookIcon />
                                     </a>
                                     <a
                                         href="https://www.instagram.com/agqeoficial/"
@@ -65,7 +65,7 @@ export default function ContatoPage() {
                                         aria-label="Instagram da AGQE"
                                         className="text-gray-500 hover:text-pink-600 transition duration-300"
                                     >
-                                        <i className="fab fa-instagram text-2xl"></i>
+                                        <InstagramIcon />
                                     </a>
                                 </div>
                             </div>
