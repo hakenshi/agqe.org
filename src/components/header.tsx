@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { buttonVariants } from './ui/button'
-import { Info, Calendar, Mail, Handshake, AlertTriangle, HomeIcon, Folder, FolderIcon } from 'lucide-react'
+import { Info, Calendar, Mail, Handshake, AlertTriangle, HomeIcon, FolderIcon } from 'lucide-react'
 
 export default function Header() {
     return (

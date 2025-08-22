@@ -5,8 +5,8 @@ import { getFileURL } from "@/lib/utils";
 
 export async function getAllSponsors() {
     try {
-        const sponsors = await apiClient.get('/sponsors');
-        return sponsors.map((sponsor: any) => ({
+        const sponsors = await apiClient.get<Sponsor[]>('/sponsors');
+        return sponsors.map((sponsor: Sponsor) => ({
             ...sponsor,
             logo: getFileURL(sponsor.logo) || "/default-logo.png"
         }));

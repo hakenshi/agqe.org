@@ -11,7 +11,6 @@ interface ErrorBoundaryProps {
 }
 
 export function ErrorBoundary({ 
-  error, 
   reset, 
   title = "Erro ao carregar dados",
   message = "Não foi possível carregar as informações. Tente novamente."

@@ -32,8 +32,8 @@ export default async function VerProjetoPage({ params }: Props) {
     }
 
     return (
-        <section className="h-full">
-            <div className="container mx-auto py-4 md:py-6 grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <section >
+            <div className="container mx-auto py-4 md:py-6 grid grid-cols-1 lg:grid-cols-4 gap-6 ">
                 {/* Sidebar com informações */}
             <div className="lg:col-span-4 bg-gradient-to-r from-pink-50 to-pink-100 p-6 rounded-xl border border-pink-200">
                 <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6">
