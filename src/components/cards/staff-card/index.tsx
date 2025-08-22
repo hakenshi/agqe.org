@@ -1,3 +1,4 @@
+import { getFileURL } from '@/lib/utils'
 import Image from 'next/image'
 import React from 'react'
 
@@ -36,7 +37,7 @@ export default function StaffCard({ color, staffMember }: StaffCardProps) {
         <div className="bg-white p-5 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
             <Image
                 className={`w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 ${colors[color].border}`}
-                src={staffMember.photo ?? "/default-profile.png"}
+                src={getFileURL(staffMember?.photo) ?? "/default-profile.png"}
                 alt={`${staffMember.firstName} ${staffMember.secondName}`}
                 width={300}
                 height={300}

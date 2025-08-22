@@ -23,8 +23,8 @@ export class ApiClient {
       const error = await response.text();
       throw new Error(`API Error: ${response.status} - ${error}`);
     }
-
-    return response.json();
+    const {data} = await response.json();
+    return data;
   }
 
   async get<T>(endpoint: string): Promise<T> {

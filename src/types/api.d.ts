@@ -45,3 +45,20 @@ interface EventImage {
   createdAt: string;
   updatedAt: string;
 }
+
+interface Project {
+  id: number;
+  name: string;
+  coverImage: string;
+  responsibles?: string;
+  projectType: 'social' | 'educational' | 'environmental' | 'cultural' | 'health';
+  slug: string;
+  markdown?: string;
+  location?: string;
+  date?: string;
+  startingTime?: string;
+  endingTime?: string;
+  status: 'planning' | 'active' | 'completed' | 'archived';
+  createdAt: string;
+  updatedAt: string;
+}
