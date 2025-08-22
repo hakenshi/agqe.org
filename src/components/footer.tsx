@@ -8,8 +8,9 @@ export default function Footer() {
             <div className="container mx-auto px-4 lg:px-6">
                 <div className="flex flex-col md:flex-row justify-between items-center">
                     <p className="text-sm text-center md:text-left mb-4 md:mb-0">
-                        &copy; <span id="current-year"></span> AGQE - Associação e Grupo Quatro Estações. Todos os direitos reservados. <br className="hidden md:block" />
-                        Template adaptado por Luís Felipe Colósimo e retrabalhado por Henrique Bissoli.
+                        &copy; <span id="current-year"></span> Associação e Grupo Quatro Estações. Todos os direitos reservados. <br className="hidden md:block" /> Projeto atualizado e desenvolvido por <Link className='font-bold' href={"https://github.com/hakenshi"} target='_blank'>
+                        Felipe Kafka Dias
+                        </Link>.
                     </p>
 
                     <div className="flex space-x-5">

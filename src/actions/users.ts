@@ -1,14 +1,12 @@
 'use server'
 
-import { db } from "@/db/db";
-import { usersSchema } from "@/db/schema";
+import { apiClient } from "@/lib/api";
 
 export async function getAllUsers() {
     try {
-        const users = await db.select().from(usersSchema)
-        return users
+        return await apiClient.get('/users');
     } catch (error) {
-        console.error("Something wrong while trying to query users table: ", error)
-        return []
+        console.error("Error fetching users:", error);
+        return [];
     }
 }

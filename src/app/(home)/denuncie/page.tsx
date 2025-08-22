@@ -5,15 +5,15 @@ export default function DenunciePage() {
             <section className="bg-[#db0000] py-16 text-white text-center">
                 <div className="container mx-auto px-4">
                     <h1 className="text-5xl md:text-6xl font-black uppercase tracking-wider">Denuncie!</h1>
-                    <p className="mt-2 text-lg md:text-xl opacity-90 font-medium">Não se cale diante da LGBTfobia.</p>
+                    <p className="mt-2 text-lg md:text-xl opacity-90 font-medium">Não se cale diante da Homofobia e da Transfobia.</p>
                 </div>
             </section>
             <section className="py-12 laptop:py-20 bg-white">
                 <div className="container mx-auto px-4 laptop:px-6 max-w-4xl">
                     <div className="mb-10 p-6 border-l-4 border-red-500 bg-red-50">
-                        <h2 className="text-2xl font-bold text-red-800 mb-3">A LGBTfobia Mata!</h2>
+                        <h2 className="text-2xl font-bold text-red-800 mb-3">A Homofobia e a Transfobia Matam!</h2>
                         <p className="text-gray-700 leading-relaxed mb-2">
-                            Você sabia que o Brasil é um dos países mais perigosos para a comunidade LGBTQIAP+? Os números de violência e assassinatos são alarmantes e, muitas vezes,
+                            Você sabia que o Brasil é um dos países mais perigosos para a comunidade LGBT+? Os números de violência e assassinatos são alarmantes e, muitas vezes,
                             subnotificados.
                         </p>
                         <p className="text-gray-700 leading-relaxed font-semibold">
@@ -22,9 +22,9 @@ export default function DenunciePage() {
                     </div>
 
                     <div className="mb-10">
-                        <h3 className="text-xl font-bold text-gray-800 mb-4">O que fazer em caso de LGBTfobia?</h3>
+                        <h3 className="text-xl font-bold text-gray-800 mb-4">O que fazer em caso de Homofobia ou Transfobia?</h3>
                         <p className="text-gray-600 leading-relaxed mb-4">
-                            Se você foi vítima ou testemunhou um ato de LGBTfobia, siga estes passos:
+                            Se você foi vítima ou testemunhou um ato de Homofobia ou Transfobia, siga estes passos:
                         </p>
                         <ul className="list-disc list-inside space-y-2 text-gray-600 mb-6">
                             <li>
@@ -34,7 +34,7 @@ export default function DenunciePage() {
                                 <span className="font-semibold">Registre tudo:</span> Se for seguro, filme ou fotografe a agressão e os agressores. Anote data, hora, local e detalhes do ocorrido. Guarde nomes ou contatos de testemunhas. Em redes sociais, tire prints das postagens, comentários ou perfis.
                             </li>
                             <li>
-                                <span className="font-semibold">Procure uma Delegacia de Polícia:</span> Registre um Boletim de Ocorrência (B.O.). LGBTfobia é crime equiparado ao racismo pelo STF. Leve todas as provas que conseguiu reunir.
+                                <span className="font-semibold">Procure uma Delegacia de Polícia:</span> Registre um Boletim de Ocorrência (B.O.). Homofobia e Transfobia são crimes equiparados ao racismo pelo STF. Leve todas as provas que conseguiu reunir.
                             </li>
                             <li>
                                 <span className="font-semibold">Utilize os Canais Oficiais de Denúncia:</span>

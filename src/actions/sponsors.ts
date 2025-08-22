@@ -1,14 +1,12 @@
 'use server'
 
-import { db } from "@/db/db"
-import { sponsorsSchema } from "@/db/schema"
+import { apiClient } from "@/lib/api";
 
 export async function getAllSponsors() {
     try {
-        const sponsors = await db.select().from(sponsorsSchema)
-        return sponsors
+        return await apiClient.get('/sponsors');
     } catch (error) {
-        console.error("Something wrong while trying to query sponsors table: ", error)
-        return []
+        console.error("Error fetching sponsors:", error);
+        return [];
     }
 }

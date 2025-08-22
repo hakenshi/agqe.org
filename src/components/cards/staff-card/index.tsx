@@ -1,10 +1,9 @@
-import { usersSchema } from '@/db/schema'
 import Image from 'next/image'
 import React from 'react'
 
 interface StaffCardProps {
     color: 'red' | 'orange' | 'amber' | 'yellow' | 'lime' | 'green' | 'emerald' | 'teal' | 'cyan' | 'sky' | 'blue' | 'indigo' | 'violet' | 'purple' | 'fuchsia' | 'pink' | 'rose' | 'neutral' | 'stone' | 'gray' | 'slate'
-    staffMember: typeof usersSchema.$inferSelect
+    staffMember: User
 }
 
 export default function StaffCard({ color, staffMember }: StaffCardProps) {

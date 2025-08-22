@@ -1,1 +1,0 @@
-ALTER TABLE "events" ALTER COLUMN "content" DROP NOT NULL;

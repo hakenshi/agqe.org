@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { buttonVariants } from './ui/button'
-import { Info, Calendar, Mail, Handshake, AlertTriangle, HomeIcon } from 'lucide-react'
+import { Info, Calendar, Mail, Handshake, AlertTriangle, HomeIcon, Folder, FolderIcon } from 'lucide-react'
 
 export default function Header() {
     return (
@@ -31,6 +31,14 @@ export default function Header() {
                             <span className="hidden md:inline">Eventos</span>
                             <span className="md:hidden text-lg">
                                 <Calendar className="w-5 h-5" />
+                            </span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/projetos" className="text-gray-600 hover:text-pink-600 transition duration-300 flex items-center">
+                            <span className="hidden md:inline">Projetos</span>
+                            <span className="md:hidden text-lg">
+                                <FolderIcon className="w-5 h-5" />
                             </span>
                         </Link>
                     </li>

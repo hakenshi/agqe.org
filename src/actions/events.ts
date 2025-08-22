@@ -1,39 +1,21 @@
 'use server'
 
-import { db } from "@/db/db";
-import { eventsSchema } from "@/db/schema";
-import { eq, sql } from "drizzle-orm";
+import { apiClient } from "@/lib/api";
 
 export async function getAllEvents() {
     try {
-        const pastEvents = await db.query.eventsSchema.findMany({
-            where: sql`${eventsSchema.date} <= ${new Date()}`,
-            with: {
-                images: true
-            }
-        })
-        const futureEvents = await db.query.eventsSchema.findMany({
-            where: sql`${eventsSchema.date} >= ${new Date()}`,
-            with: {
-                images: true
-            }
-        })
-
-        return { pastEvents, futureEvents }
+        return await apiClient.get('/events');
     } catch (error) {
         console.error("Error fetching events:", error);
+        return { pastEvents: [], futureEvents: [] };
     }
 }
 
 export async function getEventBySlug(slug: string) {
     try {
-        return db.query.eventsSchema.findFirst({
-            where: eq(eventsSchema.slug, slug),
-            with: {
-                images: true
-            }
-        })
+        return await apiClient.get(`/events/slug/${slug}`);
     } catch (error) {
-        console.error(error)
+        console.error(error);
+        return null;
     }
 }
