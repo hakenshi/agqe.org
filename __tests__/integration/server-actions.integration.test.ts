@@ -1,5 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
-import { getAllEvents, getEventBySlug, getAllSponsors, getAllUsers } from '@/actions/events';
+import { getAllEvents, getEventBySlug } from '@/actions/events';
+import { getAllSponsors } from '@/actions/sponsors';
+import { getAllUsers } from '@/actions/users';
 
 // Mock environment
 vi.stubEnv('NEXT_PUBLIC_API_URL', 'http://localhost:8000/api');

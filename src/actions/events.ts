@@ -30,9 +30,9 @@ export async function getAllEvents(): Promise<{
   }
 }
 
-export async function getEventBySlug(slug: string) {
+export async function getEventBySlug(slug: string): Promise<Event | null> {
   try {
-    const event = await apiClient.get(`/events/slug/${slug}`);
+    const event: Event = await apiClient.get(`/events/slug/${slug}`);
     if (event) {
       return {
         ...event,

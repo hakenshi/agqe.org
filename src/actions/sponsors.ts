@@ -1,17 +1,12 @@
-'use server'
+"use server";
 
 import { apiClient } from "@/lib/api";
-import { getFileURL } from "@/lib/utils";
 
-export async function getAllSponsors() {
-    try {
-        const sponsors = await apiClient.get<Sponsor[]>('/sponsors');
-        return sponsors.map((sponsor: Sponsor) => ({
-            ...sponsor,
-            logo: getFileURL(sponsor.logo) || "/default-logo.png"
-        }));
-    } catch (error) {
-        console.error("Error fetching sponsors:", error);
-        return [];
-    }
+export async function getAllSponsors(): Promise<Sponsor[]> {
+  try {
+    return await apiClient.get("/sponsors");
+  } catch (error) {
+    console.error("Error fetching sponsors:", error);
+    throw new Error('Falha ao carregar apoiadores');
+  }
 }
