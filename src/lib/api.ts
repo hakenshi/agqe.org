@@ -18,7 +18,8 @@ export class ApiClient {
       },
     };
 
-    const response = await fetch(`${this.baseUrl}${endpoint}`, config);
+    const url = `${this.baseUrl}${endpoint}${endpoint.includes('?') ? '&' : '?'}_t=${Date.now()}`;
+    const response = await fetch(url, config);
 
     if (!response.ok) {
       const error = await response.text();
