@@ -10,6 +10,7 @@ export class ApiClient {
   private async request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
     const config: RequestInit = {
       ...options,
+      cache: 'no-store', // Desabilita o cache do Next.js
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',

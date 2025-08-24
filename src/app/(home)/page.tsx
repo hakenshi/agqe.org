@@ -92,6 +92,9 @@ function TeamLoading() {
   );
 }
 
+// Revalida a página a cada 60 segundos
+export const revalidate = 60;
+
 export default function Home() {
 
   return (
@@ -147,7 +150,7 @@ export default function Home() {
                 height={100}
                 src="/images/causes/c1.png"
                 alt="Ícone Missão"
-                className="w-auto h-auto mx-auto mb-4"
+                className="size-20 mx-auto mb-4"
               />
               <h4 className="text-xl font-bold mb-3 text-pink-700">Nossa Missão</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
