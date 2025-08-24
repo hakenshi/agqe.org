@@ -92,8 +92,7 @@ function TeamLoading() {
   );
 }
 
-// Revalida a página a cada 60 segundos
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 export default function Home() {
 
