@@ -192,7 +192,7 @@ export default function Home() {
       <section id="oque_fazemos" className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-16">
-            <div className="w-1/3">
+            <div className="size-20">
               <Image
                 src="/images/about-img.jpg"
                 alt="Ações da AGQE"
