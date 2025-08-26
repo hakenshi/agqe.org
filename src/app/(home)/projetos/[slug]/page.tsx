@@ -63,7 +63,7 @@ export default async function VerProjetoPage({ params }: Props) {
                         <div className="flex items-center justify-center w-full mb-10">
                             <Image className="rounded-lg" src={project.coverImage} width={800} height={800} alt={`foto do projeto: ${project.name}`} />
                         </div>
-                        {project.location || project.date || project.startingTime && project.endingTime && <h3 className="font-semibold text-gray-800 mb-3">Detalhes</h3>}
+                        {(project.location || project.date || project.startingTime && project.endingTime) && <h3 className="font-semibold text-gray-800 mb-3">Detalhes</h3>}
                         <div className="space-y-3 text-sm">
                             {project.location && (
                                 <div className="flex items-start">
