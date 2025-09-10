@@ -1,8 +1,9 @@
 import { buttonVariants } from "@/components/ui/button";
 import { TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { apiClient } from "@/lib/api";
-import { ClockIcon, Link, MapIcon, MapPinIcon, Table, UsersIcon } from "lucide-react";
+import { ClockIcon, MapIcon, MapPinIcon, Table, UsersIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 

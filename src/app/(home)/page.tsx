@@ -1,74 +1,69 @@
-import { getAllEvents } from "@/actions/events";
 import { getAllUsers } from "@/actions/users";
-import EventCard from "@/components/cards/event-card";
-import EventCardBody from "@/components/cards/event-card/event-card-body";
-import EventCardHeader from "@/components/cards/event-card/event-card-header";
 import StaffCard from "@/components/cards/staff-card";
 import { UserSkeleton } from "@/components/loading/user-skeleton";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 
-async function EventsList() {
-  const events = await getAllEvents();
+// async function EventsList() {
+//   const events = await getAllEvents();
   
-  return (
-    <>
-      {events?.futureEvents && events?.futureEvents.length > 0 && (
-        <div className="mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-gray-800">Próximos Eventos</h2>
-          <div className={`grid grid-cols-1 ${events?.futureEvents && events?.futureEvents.length > 0 ? "md:grid-cols-2" : "md:grid-cols-1"} gap-8`}>
-            {events?.futureEvents.map(event => (
-              <EventCard key={event.id} alt={event.name} src={event.coverImage}>
-                <EventCardHeader href={event.eventType === "event" || event.eventType === "event_gallery" ? `/eventos/${event.slug}` : `/eventos/${event.slug}/galeria`}>
-                  {event.name}
-                </EventCardHeader>
-                <EventCardBody href={event.eventType === "event" || event.eventType === "event_gallery" ? `/eventos/${event.slug}` : `/eventos/${event.slug}/galeria`} title={event.name} />
-              </EventCard>
-            ))}
-          </div>
-        </div>
-      )}
-      <div className="mb-16">
-        <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-gray-800">Eventos Anteriores</h2>
-        <div className={`grid grid-cols-1 ${events?.pastEvents && events?.pastEvents.length > 0 ? "md:grid-cols-2" : "md:grid-cols-1"} gap-8`}>
-          {events?.pastEvents && events?.pastEvents.length > 0 ? events?.pastEvents.map(event => (
-            <EventCard key={event.id} alt={event.name} src={event.coverImage}>
-              <EventCardHeader href={event.eventType === "event" || event.eventType === "event_gallery" ? `/eventos/${event.slug}` : `/eventos/${event.slug}/galeria`}>
-                {event.name}
-              </EventCardHeader>
-              <EventCardBody href={event.eventType === "event" || event.eventType === "event_gallery" ? `/eventos/${event.slug}` : `/eventos/${event.slug}/galeria`} title={event.name} />
-            </EventCard>
-          )) : (
-            <p className="text-center">Ainda não há eventos anteriores.</p>
-          )}
-        </div>
-      </div>
-    </>
-  );
-}
+//   return (
+//     <>
+//       {events?.futureEvents && events?.futureEvents.length > 0 && (
+//         <div className="mb-16">
+//           <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-gray-800">Próximos Eventos</h2>
+//           <div className={`grid grid-cols-1 ${events?.futureEvents && events?.futureEvents.length > 0 ? "md:grid-cols-2" : "md:grid-cols-1"} gap-8`}>
+//             {events?.futureEvents.map(event => (
+//               <EventCard key={event.id} alt={event.name} src={event.coverImage}>
+//                 <EventCardHeader href={event.eventType === "event" || event.eventType === "event_gallery" ? `/eventos/${event.slug}` : `/eventos/${event.slug}/galeria`}>
+//                   {event.name}
+//                 </EventCardHeader>
+//                 <EventCardBody href={event.eventType === "event" || event.eventType === "event_gallery" ? `/eventos/${event.slug}` : `/eventos/${event.slug}/galeria`} title={event.name} />
+//               </EventCard>
+//             ))}
+//           </div>
+//         </div>
+//       )}
+//       <div className="mb-16">
+//         <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-gray-800">Eventos Anteriores</h2>
+//         <div className={`grid grid-cols-1 ${events?.pastEvents && events?.pastEvents.length > 0 ? "md:grid-cols-2" : "md:grid-cols-1"} gap-8`}>
+//           {events?.pastEvents && events?.pastEvents.length > 0 ? events?.pastEvents.map(event => (
+//             <EventCard key={event.id} alt={event.name} src={event.coverImage}>
+//               <EventCardHeader href={event.eventType === "event" || event.eventType === "event_gallery" ? `/eventos/${event.slug}` : `/eventos/${event.slug}/galeria`}>
+//                 {event.name}
+//               </EventCardHeader>
+//               <EventCardBody href={event.eventType === "event" || event.eventType === "event_gallery" ? `/eventos/${event.slug}` : `/eventos/${event.slug}/galeria`} title={event.name} />
+//             </EventCard>
+//           )) : (
+//             <p className="text-center">Ainda não há eventos anteriores.</p>
+//           )}
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
 
-function EventsLoading() {
-  return (
-    <div className="mb-16">
-      <Skeleton className="h-10 w-64 mx-auto mb-12" />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {Array.from({ length: 4 }).map((_, i) => (
-          <div key={i} className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <Skeleton className="w-full h-48" />
-            <div className="p-6">
-              <Skeleton className="h-6 w-3/4 mb-2" />
-              <Skeleton className="h-4 w-full mb-2" />
-              <Skeleton className="h-4 w-2/3" />
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+// function EventsLoading() {
+//   return (
+//     <div className="mb-16">
+//       <Skeleton className="h-10 w-64 mx-auto mb-12" />
+//       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+//         {Array.from({ length: 4 }).map((_, i) => (
+//           <div key={i} className="bg-white rounded-lg shadow-lg overflow-hidden">
+//             <Skeleton className="w-full h-48" />
+//             <div className="p-6">
+//               <Skeleton className="h-6 w-3/4 mb-2" />
+//               <Skeleton className="h-4 w-full mb-2" />
+//               <Skeleton className="h-4 w-2/3" />
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
 
 async function TeamList() {
   const users = await getAllUsers();
@@ -280,13 +275,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="eventos" className="py-16 lg:py-24 bg-white">
+      {/* <section id="eventos" className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4 lg:px-6">
           <Suspense fallback={<EventsLoading />}>
             <EventsList />
           </Suspense>
         </div>
-      </section>
+      </section> */}
       <section id="equipe" className="py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4 lg:px-6 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-gray-800">Nossa Equipe</h2>
