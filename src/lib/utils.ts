@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getFileURL(key: string) {
-  if(key){
+  if(key != undefined){
   const endpoint = process.env.NEXT_PUBLIC_CLOUDFLARE_R2_ENDPOINT;
   return key.includes(endpoint) ? key : `${process.env.NEXT_PUBLIC_CLOUDFLARE_R2_ENDPOINT}/${key}`
   }
